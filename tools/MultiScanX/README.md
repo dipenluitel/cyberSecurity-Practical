@@ -1,30 +1,30 @@
-Compatible
-  Windows,
-  MacOS,
-  Linux,
+# Compatible
+  Windows,<br />
+  MacOS,<br />
+  Linux,<br />
 
-Python version:
-  Python3
+# Python version:
+  Python3<br />
 
-Python Modules
-  requests,
-  bs4,
-  urllib,
+# Python Modules
+  requests,<br />
+  bs4,<br />
+  urllib,<br />
   
-Installation Linux
-  sudo apt install git python3,
-  git clone url,
-  cd LinuxElectronsSecurityTester,
-  python3 -m pip install -r requirements.txt,
-  python3 menu.py,
+# Installation Linux
+  sudo apt install git python3,<br />
+  git clone url,<br />
+  cd LinuxElectronsSecurityTester,<br />
+  python3 -m pip install -r requirements.txt,<br />
+  python3 menu.py,<br />
   
-Installation Windows
-  Download LinuxElectronsSecurityTester,
-  Download python 3,
-  Install Python 3 with "Add to path" options.,
-  Unzip LinuxElectronsSecurityTester (master.zip),
-    Open CMD and execute:,
-        cd LinuxElectronsSecurityTester-master,
-        python -m pip install -r requirements.txt,
-        python Menu.py,
+# Installation Windows
+  Download LinuxElectronsSecurityTester,<br />
+  Download python 3,<br />
+  Install Python 3 with "Add to path" options.,<br />
+  Unzip LinuxElectronsSecurityTester (master.zip),<br />
+    Open CMD and execute:,<br />
+        cd LinuxElectronsSecurityTester-master,<br />
+        python -m pip install -r requirements.txt,<br />
+        python Menu.py<br />
 
