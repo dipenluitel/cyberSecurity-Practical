@@ -1,0 +1,7 @@
+bs4
+os
+urllib
+requests
+socket
+threading
+queue
