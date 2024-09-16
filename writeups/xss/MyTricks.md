@@ -6,7 +6,7 @@ Before testing, ensure you have:<br />
 1. Access to the web application you want to test<br />
 2. Basic knowledge of web technologies such as HTML, JavaScript, and URL encoding<br />
 3. Appropriate permissions to perform security testing on the target website (legal or authorized engagement)<br />
-<h1>Steps for Testing XSS Vulnerabilities</h1>
+<h1>Basics for Testing XSS Vulnerabilities</h1>
 
 <b>1. Identify Whitelisted or Blacklisted Characters</b>
 Begin by identifying if the application uses a whitelist or blacklist to filter specific characters. This will give you an idea of what input is allowed or blocked.<br />
