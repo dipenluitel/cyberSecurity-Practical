@@ -1,4 +1,4 @@
-Brute Logic Tricks: Advanced Techniques in Web Security Exploitation
+# Brute Logic Tricks: Advanced Techniques in Web Security Exploitation
 The following write-up highlights advanced web exploitation techniques focusing on XSS (Cross-Site Scripting) vulnerabilities, WAF (Web Application Firewall) bypasses, and SSRF (Server-Side Request Forgery) scenarios. These methods are tailored for skilled penetration testers and security researchers, offering a deeper understanding of how to trick filters and evade detection in web applications.
 
 1. Escaping Filters Using Byte Bundles
