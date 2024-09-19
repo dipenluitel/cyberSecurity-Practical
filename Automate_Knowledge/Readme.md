@@ -18,10 +18,9 @@ checktool.py<br />
 recon.py<br />
 Run all the tools and save output in folder name output/{reconName}.py<br />
 
-<p><b3>How It Works:</b3></p>
+<p><h3>How It Works:</h3></p>
     <p><b>Single URL (--url):</b> You can specify a single URL, and the script will extract the domain and run the subdomain enumeration tools on it.</p>
     <p>Example: <br /><code>python3 run.py --url https://example.com</code></p>
-
     <br />
 
     <p><b>Multiple URLs (--urls):</b> You can specify multiple URLs, separated by commas, and the script will run the tools on each domain.</p>
