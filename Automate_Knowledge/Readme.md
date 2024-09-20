@@ -33,3 +33,41 @@ Example:
 <br>
 
 The script extracts the domain from the URL, runs the tools for each domain, and saves the output in the **output** folder with a unique file for each tool and domain (e.g., `amass_example.com.out`, `sublist3r_example.com.out`).
+
+
+<h1>Subdomain Enumeration Script</h1>
+
+<p>This Python script allows subdomain enumeration using tools like Sublist3r, Amass, and Findomain. It supports input for a single domain, multiple domains, or reading domains from a file.</p>
+
+<h2>Explanation:</h2>
+
+<h3>Input Options:</h3>
+<ul>
+  <li><code>--url</code>: For a single domain.</li>
+  <li><code>--urls</code>: For a comma-separated list of domains.</li>
+  <li><code>--file</code>: To read domains from a file.</li>
+</ul>
+
+<h3>Subdomain Enumeration Tools:</h3>
+<ul>
+  <li><strong>Sublist3r</strong>, <strong>Amass</strong>, and <strong>Findomain</strong> are called using <code>subprocess.run()</code>.</li>
+</ul>
+
+<h3>Output:</h3>
+<ul>
+  <li>Results from each tool are saved in separate text files: <code>domain_sublist3r.txt</code>, <code>domain_amass.txt</code>, etc.</li>
+  <li>A combined result file is created: <code>domain_combined.txt</code>.</li>
+</ul>
+
+<h3>Concurrency:</h3>
+<ul>
+  <li>The script uses Python's <code>multiprocessing.Pool</code> to process multiple domains simultaneously.</li>
+</ul>
+
+<h2>Example Usage:</h2>
+
+<pre><code>python run.py --url example.com
+python run.py --urls example.com,example.org,test.com
+python run.py --file domains.txt
+</code></pre>
+
