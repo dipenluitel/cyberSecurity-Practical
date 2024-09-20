@@ -14,7 +14,7 @@ checktool.py<br />
 [✅] subfinder installed<br />
 [✅] curl installed<br />
 [✅] massdns installed<br />
-# How It Works:
+# Information Gathering:
 
 **Single URL (--url):** You can specify a single URL, and the script will extract the domain and run the subdomain enumeration tools on it.  
 Example:  
