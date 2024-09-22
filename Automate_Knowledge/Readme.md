@@ -73,3 +73,9 @@ python run.py --urls example.com,example.org,test.com
 python run.py --file domains.txt
 </code></pre>
 
+
+
+# XSS (Cross Site Scripting)
+**Usages**
+$ python xss.py --url https://example.com/search= --file /path/to/payloads.txt
+
